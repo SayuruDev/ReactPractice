@@ -1,23 +1,24 @@
+import { useState } from 'react';
 import './App.css';
-import React, { useState } from 'react';
 
 function App() {
-  //var count = 0;
-  const [count, setCount] = useState(0); 
-  
-
-  function handleAdd(){
-    setCount(count+1);
-    console.log(count);
-  }
+  const [tasks, setTasks] = useState([
+    {id: 5271, name: "Record React Lectures", completed: true}, 
+    {id: 7825, name: "Edit React Lectures", completed: false}, 
+    {id: 8391, name: "Watch Lectures", completed: false}
+  ]);
 
   return (
     <div className="App">
-      <div className="box">
-        <p>{count}</p>
-        <button onClick={handleAdd} className='add'>ADD</button>
-        <button className='sub'>SUB</button>
-      </div>
+      <h1>Task List</h1>
+      <ul>
+        { tasks.map((task) => (
+          <li key={task.id}>
+            <span>{task.id} - {task.name}</span>
+            <button className='delete'>Delete</button>
+          </li>
+        )) }
+      </ul>
     </div>
   );
 }
