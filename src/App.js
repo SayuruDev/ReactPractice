@@ -1,10 +1,13 @@
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
-  let count = 0;
+  //var count = 0;
+  const [count, setCount] = useState(0); 
+  
 
   function handleAdd(){
-    count+=1;
+    setCount(count+1);
     console.log(count);
   }
 
